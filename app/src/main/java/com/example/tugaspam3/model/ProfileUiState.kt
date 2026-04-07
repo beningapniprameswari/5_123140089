@@ -7,5 +7,6 @@ data class ProfileUiState(
     val email: String = "bening.123140089@student.itera.ac.id",
     val phone: String = "+6281366031307",
     val location: String = "Bandar Lampung",
-    val isDarkMode: Boolean = false
+    val isDarkMode: Boolean = false,
+    val notes: List<Note> = emptyList()
 )

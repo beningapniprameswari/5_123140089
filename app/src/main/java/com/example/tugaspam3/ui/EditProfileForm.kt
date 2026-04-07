@@ -6,7 +6,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import com.example.tugaspam3.model.ProfileUiState
 
@@ -16,7 +15,7 @@ fun EditProfileForm(
     onSave: (String, String) -> Unit
 ) {
 
-    val context = LocalContext.current // 🔥 WAJIB BUAT TOAST
+    val context = LocalContext.current
 
     var name by remember { mutableStateOf(state.name) }
     var bio by remember { mutableStateOf(state.bio) }
@@ -24,7 +23,7 @@ fun EditProfileForm(
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFFFF0F5)
+            containerColor = MaterialTheme.colorScheme.surface
         )
     ) {
         Column(
@@ -33,7 +32,8 @@ fun EditProfileForm(
 
             Text(
                 text = "Edit Profile",
-                style = MaterialTheme.typography.titleMedium
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.primary
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -42,7 +42,11 @@ fun EditProfileForm(
                 value = name,
                 onValueChange = { name = it },
                 label = { Text("Name") },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = MaterialTheme.colorScheme.primary,
+                    focusedLabelColor = MaterialTheme.colorScheme.primary
+                )
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -51,7 +55,11 @@ fun EditProfileForm(
                 value = bio,
                 onValueChange = { bio = it },
                 label = { Text("Bio") },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = MaterialTheme.colorScheme.primary,
+                    focusedLabelColor = MaterialTheme.colorScheme.primary
+                )
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -68,7 +76,10 @@ fun EditProfileForm(
                 },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(50.dp)
+                    .height(50.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.primary
+                )
             ) {
                 Text("Save")
             }

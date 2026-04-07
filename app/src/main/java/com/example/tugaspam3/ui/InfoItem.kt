@@ -15,13 +15,25 @@ fun InfoItem(icon: ImageVector, title: String, value: String) {
         modifier = Modifier.padding(vertical = 8.dp)
     ) {
 
-        Icon(icon, contentDescription = title)
+        Icon(
+            imageVector = icon, 
+            contentDescription = title,
+            tint = MaterialTheme.colorScheme.primary
+        )
 
         Spacer(modifier = Modifier.width(8.dp))
 
         Column {
-            Text(title)
-            Text(value)
+            Text(
+                text = title,
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary
+            )
+            Text(
+                text = value,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurface
+            )
         }
     }
 }

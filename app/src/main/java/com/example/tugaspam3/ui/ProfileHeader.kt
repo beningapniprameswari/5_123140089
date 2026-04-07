@@ -3,6 +3,7 @@ package com.example.tugaspam3.ui
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,8 +31,22 @@ fun ProfileHeader(state: ProfileUiState) {
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        Text(state.name, fontSize = 22.sp, fontWeight = FontWeight.Bold)
-        Text(state.nim, fontSize = 18.sp, fontWeight = FontWeight.Bold)
-        Text(state.bio, fontSize = 14.sp)
+        Text(
+            text = state.name, 
+            fontSize = 22.sp, 
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.onBackground
+        )
+        Text(
+            text = state.nim, 
+            fontSize = 18.sp, 
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.onBackground
+        )
+        Text(
+            text = state.bio, 
+            fontSize = 14.sp,
+            color = MaterialTheme.colorScheme.onBackground
+        )
     }
 }
