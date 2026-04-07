@@ -38,6 +38,19 @@ class ProfileViewModel : ViewModel() {
         }
     }
 
+    fun updateNote(noteId: Int, title: String, content: String) {
+        _uiState.update { state ->
+            val updatedNotes = state.notes.map { note ->
+                if (note.id == noteId) {
+                    note.copy(title = title, content = content)
+                } else {
+                    note
+                }
+            }
+            state.copy(notes = updatedNotes)
+        }
+    }
+
     fun deleteNote(noteId: Int) {
         _uiState.update { state ->
             state.copy(notes = state.notes.filter { it.id != noteId })

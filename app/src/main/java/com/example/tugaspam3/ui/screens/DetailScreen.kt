@@ -3,6 +3,7 @@ package com.example.tugaspam3.ui.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.*
@@ -31,6 +32,14 @@ fun DetailScreen(navController: NavController, noteId: Int, viewModel: ProfileVi
                             Icon(
                                 imageVector = if (n.isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
                                 contentDescription = "Favorite",
+                                tint = MaterialTheme.colorScheme.primary
+                            )
+                        }
+
+                        IconButton(onClick = { navController.navigate("edit_note/$noteId") }) {
+                            Icon(
+                                imageVector = Icons.Default.Edit,
+                                contentDescription = "Edit Note",
                                 tint = MaterialTheme.colorScheme.primary
                             )
                         }
